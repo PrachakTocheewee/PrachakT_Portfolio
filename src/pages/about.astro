@@ -1,0 +1,60 @@
+---
+import MainHead from "../components/MainHead.astro";
+import Footer from "../components/Footer/index.jsx";
+import Nav from "../components/Nav/index.jsx";
+---
+
+<html lang="en">
+	<head>
+		<MainHead
+			title="About | Por"
+			description="About Jeanine White Lorem Ipsum"
+		/>
+		<style lang="scss">
+			body {
+				background-color: powderblue;
+				background-image: url("https://images6.alphacoders.com/708/708733.jpg");
+				//background-size: 100% 100%;
+			}
+			.heroImg {
+				max-height: 24rem;
+				object-fit: cover;
+				overflow: hidden;
+
+				img {
+					width: 100%;
+				}
+			}
+
+			.bio {
+				font-size: var(--f-u1);
+				line-height: 2;
+			}
+		</style>
+	</head>
+	<body>
+		<Nav />
+		<div class="wrapper">
+			<h1>About Me</h1>
+			<div class="heroImg">
+				<img
+					width="1400"
+					height="350"
+					src="https://static.vecteezy.com/system/resources/previews/000/094/726/original/shiny-stars-blue-background-vector.jpg"
+				/>
+			</div>
+			<div class="bio wrapper wrapper__readable mt8">
+				<p>Hi there, I'm Por</p>
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am a highly analytical
+					individual with a systematic thinking process who eagers to
+					learn new things. With background in mathematics,
+					statistics, and data analysis, I would like to apply my
+					background knowledge to pursue my career as a Software
+					Developer.
+				</p>
+			</div>
+		</div>
+		<Footer />
+	</body>
+</html>
