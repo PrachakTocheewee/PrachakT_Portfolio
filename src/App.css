@@ -1,68 +1,56 @@
-:root {
-  --bg-color: #020617;
-  --accent-blue: #3b82f6;
-  --text-main: #e5e7eb;
-  --text-dim: #9ca3af;
-  --card-bg: rgba(255, 255, 255, 0.03);
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  background: radial-gradient(circle at top, #0f172a, var(--bg-color));
-  color: var(--text-main);
+  margin: 0;
   font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color: #e5e7eb;
 }
 
 .app {
   max-width: 1100px;
   margin: auto;
-  padding: 0 20px;
+  padding: 20px;
 }
 
-/* Navigation */
+/* NAV */
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 0;
+  padding: 20px 0;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .nav-center {
   display: flex;
   gap: 15px;
   font-size: 13px;
+  color: #9ca3af;
 }
 
 .nav-center a {
-  color: var(--text-dim);
+  color: #9ca3af;
   text-decoration: none;
-  transition: 0.3s;
 }
 
 .nav-center a:hover {
-  color: var(--accent-blue);
+  color: #60a5fa;
 }
 
 .nav-resume-btn {
-  padding: 8px 16px;
-  border: 1px solid var(--accent-blue);
-  color: var(--accent-blue) !important;
+  padding: 6px 15px;
+  border: 1px solid #3b82f6;
   border-radius: 6px;
+  color: #3b82f6 !important;
   text-decoration: none;
 }
 
-/* Hero */
+/* HERO */
 .hero {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 80px 0;
+  margin-top: 60px;
   gap: 40px;
 }
 
@@ -70,20 +58,20 @@ body {
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  border: 4px solid rgba(59, 130, 246, 0.2);
+  border: 3px solid rgba(59, 130, 246, 0.2);
   object-fit: cover;
 }
 
-/* Sections */
+/* SECTION */
 .section {
-  padding: 60px 0;
+  margin-top: 80px;
 }
 
 .section-header {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .line {
@@ -92,12 +80,12 @@ body {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Timeline (Education & Senior Project) */
+/* TIMELINE STYLE (Education & Senior Project) */
 .edu-container {
   padding-left: 35px;
   border-left: 2px solid rgba(59, 130, 246, 0.2);
   width: 100%;
-  /* บังคับกว้างเต็ม */
+  /* บังคับให้ขยายเต็มความกว้าง */
 }
 
 .edu-item {
@@ -107,114 +95,101 @@ body {
 
 .edu-dot {
   position: absolute;
-  left: -43px;
-  top: 10px;
+  left: -43.5px;
+  /* จัดตำแหน่งให้ตรงกับเส้น */
+  top: 12px;
   width: 14px;
   height: 14px;
-  background: var(--accent-blue);
+  background: #3b82f6;
   border-radius: 50%;
-  box-shadow: 0 0 15px var(--accent-blue);
+  box-shadow: 0 0 12px #3b82f6;
 }
 
 .edu-card {
-  background: var(--card-bg);
+  background: rgba(255, 255, 255, 0.03);
   padding: 30px;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   width: 100%;
-  transition: 0.4s ease;
+  /* บังคับกล่องกว้างเท่ากันทั้งหมด */
+  transition: 0.3s ease;
 }
 
 .edu-card:hover {
+  border-color: #3b82f6;
+  background: rgba(255, 255, 255, 0.05);
   transform: translateX(10px);
-  border-color: var(--accent-blue);
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.edu-date {
-  color: var(--accent-blue);
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-
-.kpi-text {
-  color: #64ffda;
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin: 10px 0;
 }
 
 .edu-details {
   list-style: none;
+  padding: 0;
   margin-top: 15px;
 }
 
 .edu-details li {
-  margin-bottom: 12px;
-  color: var(--text-dim);
-  padding-left: 25px;
+  font-size: 14px;
+  color: #9ca3af;
+  margin-bottom: 10px;
+  padding-left: 20px;
   position: relative;
-  font-size: 15px;
 }
 
 .edu-details li::before {
   content: "▹";
   position: absolute;
   left: 0;
-  color: var(--accent-blue);
+  color: #3b82f6;
+}
+
+.edu-date {
+  font-size: 13px;
+  color: #60a5fa;
+  margin-bottom: 5px;
 }
 
 .edu-tags span {
   display: inline-block;
   margin: 10px 8px 0 0;
-  padding: 4px 12px;
+  padding: 4px 10px;
   background: rgba(59, 130, 246, 0.1);
-  color: var(--accent-blue);
-  border-radius: 20px;
+  border-radius: 6px;
+  color: #60a5fa;
   font-size: 12px;
 }
 
-/* Additional Projects Grid */
-.cards-grid {
+/* ADDITIONAL PROJECTS GRID */
+.cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-.card-small {
-  background: var(--card-bg);
+.card {
+  background: rgba(255, 255, 255, 0.03);
   padding: 25px;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
   transition: 0.3s;
 }
 
-.card-small:hover {
-  border-color: var(--accent-blue);
+.card:hover {
   transform: translateY(-5px);
+  border-color: #3b82f6;
 }
 
-.card-small p {
-  color: var(--text-dim);
-  font-size: 14px;
-  margin-top: 10px;
-}
-
-/* Global Utilities */
-.view-btn {
-  color: var(--accent-blue);
+.view-link {
+  color: #3b82f6;
   text-decoration: none;
+  font-size: 14px;
   font-weight: 500;
 }
 
-.view-btn:hover {
-  text-decoration: underline;
-}
-
+/* ANIMATIONS */
 .fade-in {
   opacity: 0;
-  transform: translateY(30px);
-  transition: 1s ease-out;
+  transform: translateY(20px);
+  transition: 0.8s ease;
 }
 
 .fade-in.show {
@@ -235,22 +210,27 @@ body {
 .footer {
   text-align: center;
   padding: 60px 0;
-  color: var(--text-dim);
+  color: #9ca3af;
   font-size: 13px;
 }
 
 .footer button {
   background: none;
   border: none;
-  color: var(--accent-blue);
+  color: #3b82f6;
   cursor: pointer;
   margin-top: 10px;
 }
 
+/* MOBILE */
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
     text-align: center;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
   }
 
   .edu-container {
