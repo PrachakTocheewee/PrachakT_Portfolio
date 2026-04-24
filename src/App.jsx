@@ -198,39 +198,48 @@ export default function App() {
         </div>
       </section>
 
-      {/* 4. SENIOR PROJECT SECTION (แก้ไขให้แสดง Details ทันที) */}
+      {/* 4. SENIOR PROJECT SECTION - แก้ไขโครงสร้างให้เหมือน Education */}
       <section id="projects" className="section fade-in">
         <div className="section-header">
           <h2>Senior Project</h2>
           <div className="line"></div>
         </div>
-        <div className="cards">
-          <div className="card senior-card-full">
-            <h3>{seniorProject.title}</h3>
-            <p className="edu-date">{seniorProject.subtitle}</p>
-            <div
-              className="kpi"
-              style={{ color: '#64ffda', margin: '15px 0', fontWeight: 'bold' }}
-            >
-              {seniorProject.kpi}
-            </div>
 
-            {/* รายละเอียดโครงการที่ดึงออกมาแสดงหน้าหลัก */}
-            <ul className="edu-details">
-              {seniorProject.details.map((detail, index) => (
-                <li key={index}>{detail}</li>
-              ))}
-            </ul>
-
-            <div style={{ marginTop: '20px' }}>
-              <a
-                href={seniorProject.pdfLink}
-                target="_blank"
-                rel="noreferrer"
-                className="view-btn"
+        {/* ใช้ edu-container เพื่อให้ได้เส้น Timeline และระยะขอบที่เท่ากัน */}
+        <div className="edu-container">
+          <div className="edu-item">
+            <div className="edu-dot"></div>
+            <div className="edu-card">
+              {' '}
+              {/* ใช้ edu-card เพื่อให้ขนาดกล่องเท่ากับ Education */}
+              <h3>{seniorProject.title}</h3>
+              <p className="edu-date">{seniorProject.subtitle}</p>
+              <div
+                className="kpi"
+                style={{
+                  color: '#60a5fa',
+                  margin: '15px 0',
+                  fontWeight: 'bold',
+                }}
               >
-                View Full Project Report (PDF)
-              </a>
+                {seniorProject.kpi}
+              </div>
+              <ul className="edu-details">
+                {seniorProject.details.map((detail, index) => (
+                  <li key={index}>{detail}</li>
+                ))}
+              </ul>
+              <div style={{ marginTop: '20px' }}>
+                <a
+                  href={seniorProject.pdfLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="nav-resume-btn"
+                  style={{ fontSize: '13px', display: 'inline-block' }}
+                >
+                  View Full Project Report (PDF) →
+                </a>
+              </div>
             </div>
           </div>
         </div>
