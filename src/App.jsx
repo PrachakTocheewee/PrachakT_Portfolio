@@ -28,16 +28,20 @@ export default function App() {
       title: 'Find Your Hat',
       description:
         'Interactive terminal game built with JavaScript where players navigate a grid while avoiding obstacles.',
+      link: 'https://replit.com/@PrachakTocheewe/find-yourhat#index.js',
     },
     {
       title: 'Jammming',
       description:
         'React web application integrated with the Spotify API to search and create customized playlists.',
+      link:
+        'https://accounts.spotify.com/en/login?continue=https%3A%2F%2Faccounts.spotify.com%2Fauthorize%3Fscope%3Dplaylist-modify-public%26response_type%3Dtoken%26redirect_uri%3Dhttp%253A%252F%252Fprachak32-jammming.surge.sh%26client_id%3Db2592ea953504e46bafdef956d077f24&client_id=b2592ea953504e46bafdef956d077f24',
     },
     {
       title: 'Infinity Health',
       description:
         'Full-stack exercise tracker (MERN stack) with secure authentication and activity management.',
+      link: 'https://infinity-health.vercel.app/',
     },
   ]
 
@@ -256,6 +260,15 @@ export default function App() {
             <div className="card" key={i}>
               <h3>{p.title}</h3>
               <p>{p.description}</p>
+              <a
+                href={p.link}
+                target="_blank"
+                rel="noreferrer"
+                className="btn"
+                style={{ marginTop: '10px', display: 'inline-block' }}
+              >
+                View Project
+              </a>
             </div>
           ))}
         </div>
