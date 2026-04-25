@@ -32,7 +32,7 @@ export default function App() {
       title: 'Find Your Hat',
       description:
         'Interactive terminal game built with JavaScript where players navigate a grid while avoiding obstacles.',
-      link: 'https://replit.com/@PrachakTocheewe/find-yourhat#index.js',
+      link: 'https://r35cpz.csb.app/',
     },
     {
       title: 'Jammming',
