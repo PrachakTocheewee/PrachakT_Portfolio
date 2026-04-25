@@ -1,12 +1,16 @@
-import React from 'react' // ต้องมีบรรทัดนี้
+import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './App.css'
 import { useEffect, useState } from 'react'
+import ReactGA from 'react-ga4' // 1. Import GA4
+
+// Initialize GA4 ด้วย Measurement ID ของคุณ
+ReactGA.initialize('G-2WGTN5Q4ZX')
 
 export default function App() {
   const [typedText, setTypedText] = useState('')
 
-  // ข้อมูล Senior Project - ย้ายออกมาแสดงผลหน้าหลัก
+  // ข้อมูล Senior Project
   const seniorProject = {
     title: 'Electricity Demand Forecasting (Time Series Analysis)',
     subtitle: 'Thammasat University - Special Project',
@@ -45,8 +49,11 @@ export default function App() {
     },
   ]
 
-  // Typing Effect
+  // GA4 Pageview & Typing Effect
   useEffect(() => {
+    // ส่งข้อมูล Pageview เมื่อ Component mount
+    ReactGA.send({ hitType: 'pageview', page: window.location.pathname })
+
     const text =
       'Data Analyst specializing in Forecasting & Business Intelligence'
     let i = 0
@@ -136,7 +143,6 @@ export default function App() {
           <div className="line"></div>
         </div>
         <div className="edu-container">
-          {/* Thammasat University */}
           <div className="edu-item">
             <div className="edu-dot"></div>
             <div className="edu-card">
@@ -171,7 +177,6 @@ export default function App() {
             </div>
           </div>
 
-          {/* Bootcamp */}
           <div className="edu-item">
             <div className="edu-dot"></div>
             <div className="edu-card">
@@ -202,20 +207,17 @@ export default function App() {
         </div>
       </section>
 
-      {/* 4. SENIOR PROJECT SECTION - แก้ไขโครงสร้างให้เหมือน Education */}
+      {/* 4. SENIOR PROJECT SECTION */}
       <section id="projects" className="section fade-in">
         <div className="section-header">
           <h2>Senior Project</h2>
           <div className="line"></div>
         </div>
 
-        {/* ใช้ edu-container เพื่อให้ได้เส้น Timeline และระยะขอบที่เท่ากัน */}
         <div className="edu-container">
           <div className="edu-item">
             <div className="edu-dot"></div>
             <div className="edu-card">
-              {' '}
-              {/* ใช้ edu-card เพื่อให้ขนาดกล่องเท่ากับ Education */}
               <h3>{seniorProject.title}</h3>
               <p className="edu-date">{seniorProject.subtitle}</p>
               <div
