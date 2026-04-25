@@ -38,8 +38,7 @@ export default function App() {
       title: 'Jammming',
       description:
         'React web application integrated with the Spotify API to search and create customized playlists.',
-      link:
-        'https://accounts.spotify.com/en/login?continue=https%3A%2F%2Faccounts.spotify.com%2Fauthorize%3Fscope%3Dplaylist-modify-public%26response_type%3Dtoken%26redirect_uri%3Dhttp%253A%252F%252Fprachak32-jammming.surge.sh%26client_id%3Db2592ea953504e46bafdef956d077f24&client_id=b2592ea953504e46bafdef956d077f24',
+      link: 'https://jammming-prachak-2026.surge.sh/',
     },
     {
       title: 'Infinity Health',
