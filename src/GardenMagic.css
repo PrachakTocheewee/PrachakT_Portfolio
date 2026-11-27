@@ -154,3 +154,42 @@
 }
 [data-motion=paused] #root main .panel:hover,
 [data-motion=paused] #root main .project:hover { transform: none; }
+
+
+/* Gentle glass polish and progressive, non-blocking card reveals. */
+:root { --card-glow: #b9b3ff; --card-shine: #e0ddff24; }
+:root[data-theme=light] { --card-glow: #67bcb4; --card-shine: #ffffff80; }
+#root main .panel { position: relative; }
+#root main .panel::after {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(120deg, transparent 32%, var(--card-shine) 48%, transparent 64%);
+  background-size: 250% 100%; background-position: 100% 0;
+  opacity: 0;
+}
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  [data-motion=playing] #root main .panel:hover::after { animation: cardGlassSweep .72s ease-out both; }
+  [data-motion=playing] #root main .panel:hover {
+    border-color: color-mix(in srgb,var(--card-glow) 70%,var(--line));
+    box-shadow: 0 0 0 1px color-mix(in srgb,var(--card-glow) 22%,transparent), 0 14px 32px color-mix(in srgb,var(--card-glow) 15%,transparent);
+  }
+  #root main .portrait img { transition: scale .28s ease; }
+  [data-motion=playing] #root main .portrait:hover img { scale: 1.025; }
+  [data-motion=playing] #root main .button:hover { scale: 1.03; transition: scale .22s ease, transform .22s ease, box-shadow .22s ease; }
+  [data-motion=playing] #root main .project:hover .project-icon { transform: scale(1.08); }
+}
+@keyframes cardGlassSweep { 0% { opacity:0; background-position:100% 0; } 18% { opacity:.65; } 100% { opacity:0; background-position:0 0; } }
+@keyframes cardSoftReveal { from { opacity:.65; translate:0 10px; } to { opacity:1; translate:0 0; } }
+[data-motion=playing] .card-revealed { animation:cardSoftReveal .48s var(--reveal-delay,0ms) ease-out backwards; }
+.forecast-sketch { margin: 2px 0 0; padding: 10px 10px 8px; border:1px solid var(--line); border-radius:12px; background:var(--surface); min-width:0; }
+.forecast-sketch svg { display:block; width:100%; height:auto; }
+.sketch-grid { stroke:var(--line); stroke-width:1; stroke-dasharray:2 4; }
+.sketch-line { stroke:var(--mint); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.sketch-projection { stroke:var(--accent); stroke-width:1.6; stroke-dasharray:3 4; stroke-linecap:round; }
+.forecast-sketch figcaption { color:var(--muted); font-size:11px; line-height:1.5; }
+[data-motion=playing] .sketch-visible .sketch-line { animation: drawForecast 1.2s ease-out backwards; }
+@keyframes drawForecast { from { stroke-dasharray:1; stroke-dashoffset:1; } to { stroke-dasharray:1; stroke-dashoffset:0; } }
+.secret-constellation button { min-width:28px; min-height:28px; display:grid; place-items:center; }
+.secret-constellation span { white-space:normal; max-width:100%; line-height:1.4; }
+@media (pointer:coarse) { .secret-constellation button { min-width:20px; min-height:20px; padding:2px; } }
+[data-motion=paused] .card-revealed, [data-motion=paused] .sketch-line { animation:none!important; }
+@media(prefers-reduced-motion:reduce) { .card-revealed,.sketch-line { animation:none!important; } }
