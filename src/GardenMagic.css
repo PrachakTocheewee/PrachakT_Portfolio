@@ -6,7 +6,7 @@
 .sky-scene .moon{filter:drop-shadow(0 0 14px #c9d9ff45) drop-shadow(0 0 32px #a7b6f32e)}.moon-wish-trigger{position:fixed;right:9%;top:10%;width:clamp(75px,10vw,140px);aspect-ratio:1;border:0;background:transparent;border-radius:50%;z-index:3;padding:0;cursor:pointer}.moon-wish-trigger:hover{box-shadow:0 0 26px #d8e5ff44}.moon-wish-trigger:focus-visible{outline:2px solid #dbe6ff}.moon-wish-note{position:fixed;top:calc(10% + clamp(75px,10vw,140px) + 10px);right:7%;z-index:3;font-size:12px;color:#e6eeff;pointer-events:none}
 .wish-flower-wrap{position:absolute;left:12%;bottom:86px;width:80px;z-index:1}.wish-flower{display:block;background:none;border:0;padding:0;width:74px;height:105px;filter:drop-shadow(0 1px 2px #496a6250);transform-origin:bottom;animation:wishSway 6s ease-in-out infinite alternate}.wish-flower svg{width:100%;height:100%}.wish-flower:hover{filter:drop-shadow(0 0 8px #fff9bd)}@keyframes wishSway{to{transform:rotate(5deg)}}.wish-message{position:absolute;bottom:110px;left:0;white-space:nowrap;color:#31583f;font-size:12px;font-weight:650;pointer-events:none}.wish-seeds{position:absolute;top:25px;left:34px;pointer-events:none}.wish-seeds i{position:absolute;width:18px;color:#fffef8;filter:drop-shadow(0 1px 1px #698a7b);animation:wishFly 2.15s var(--wd) ease-out both!important}.wish-seeds svg{width:100%}@keyframes wishFly{0%{opacity:0;transform:scale(.5)}12%{opacity:1}70%{opacity:.85}100%{opacity:0;transform:translate(var(--wx),var(--wy)) rotate(var(--wr)) scale(.7)}}
 .butterfly-layer{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}.butterfly{position:absolute;left:-40px;top:38%;width:28px;opacity:0;animation:butterflyFlight 32s linear infinite}.butterfly-1{top:54%;animation-delay:-15s;animation-duration:43s;width:23px}.butterfly svg{width:100%;overflow:visible}.wing{transform-origin:20px 15px;animation:wingBeat .48s ease-in-out infinite alternate}@keyframes wingBeat{to{transform:scaleX(.33)}}@keyframes butterflyFlight{0%{transform:translateX(-20px) translateY(20px);opacity:0}4%{opacity:.9}11%{transform:translate(18vw,-25px) rotate(-8deg)}20%{transform:translate(42vw,10px) rotate(6deg)}28%{transform:translate(68vw,-35px) rotate(-5deg);opacity:.9}36%{transform:translate(105vw,15px);opacity:0}100%{transform:translate(105vw,15px);opacity:0}}
-@media(hover:hover) and (pointer:fine){.project.magic-hover,.featured.magic-hover{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-2px);box-shadow:0 14px 35px color-mix(in srgb,var(--accent) 15%,transparent)}.button.magic-hover{transform:translate(var(--mx,0px),var(--my,0px));box-shadow:0 4px 18px color-mix(in srgb,var(--accent) 26%,transparent)}}
+@media(hover:hover) and (pointer:fine){.button.magic-hover{transform:translate(var(--mx,0px),var(--my,0px));box-shadow:0 4px 18px color-mix(in srgb,var(--accent) 26%,transparent)}}
 [data-motion=paused] .hero h1 em,[data-motion=paused] .wish-flower,[data-motion=paused] .footer-landscape .footer:before,[data-motion=paused] .scroll-cue span{animation-play-state:paused!important}
 @media(max-width:650px){.moon-wish-trigger{right:5%;top:12%}.moon-wish-note{right:5%;top:calc(12% + 80px)}.wish-flower-wrap{left:8%;bottom:91px;width:60px}.wish-flower{width:58px;height:84px}.wish-message{bottom:86px}.butterfly-1{display:none}.aurora{filter:blur(25px);opacity:.1}}
 @media(prefers-reduced-motion:reduce){.hero h1 em{animation:none!important}.butterfly,.wing,.aurora{animation:none!important}}
@@ -136,3 +136,21 @@
 @media (orientation: landscape) and (max-width: 600px) {
   #about.hero { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Calm card hover: small, centered enlargement, no 3D tilt. */
+@media (hover: hover) and (pointer: fine) {
+  #root main .panel, #root main .project {
+    transform-origin: center;
+    transition: transform .24s cubic-bezier(.2,.75,.25,1), box-shadow .24s ease, border-color .24s ease;
+  }
+  #root main .panel:hover, #root main .project:hover {
+    transform: scale(1.018);
+    border-color: color-mix(in srgb,var(--accent) 55%,var(--line));
+    box-shadow: 0 14px 32px color-mix(in srgb,var(--accent) 12%,transparent);
+  }
+}
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  #root main .panel:hover, #root main .project:hover { transform: none; }
+}
+[data-motion=paused] #root main .panel:hover,
+[data-motion=paused] #root main .project:hover { transform: none; }
