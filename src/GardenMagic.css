@@ -46,3 +46,93 @@
 @media(max-width:650px){.auto-sky{min-height:32px;padding:4px 6px;font-size:10px}.nav-cv{display:none}.secret-constellation{left:5%;width:185px}.secret-cat{width:55px}.secret-lady{bottom:110px}}
 [data-motion=paused] .section-revealed,[data-motion=paused] .theme-option.selected svg,[data-motion=paused] .paper-plane,[data-motion=paused] .lady-flying{animation:none!important}
 @media(prefers-reduced-motion:reduce){.section-revealed,.theme-option.selected svg{animation:none!important}}
+
+
+/* Responsive navigation and rotation: keep the hidden menu out of layout. */
+@media (max-width: 1100px) {
+  html { scroll-padding-top: 84px; }
+  #root > .header {
+    width: auto;
+    margin: 8px max(10px, env(safe-area-inset-right, 0px)) 0 max(10px, env(safe-area-inset-left, 0px));
+    top: max(6px, env(safe-area-inset-top, 0px));
+    border-radius: 16px;
+  }
+  #root > .header .navbar {
+    display: flex; flex-wrap: nowrap; align-items: center;
+    justify-content: space-between; width: 100%; min-width: 0;
+    min-height: 60px; height: auto; gap: 6px; padding: 6px 8px;
+    transition: none;
+  }
+  #root > .header .brand { flex: 0 1 auto; min-width: 0; font-size: 14px; gap: 4px; }
+  #root > .header .brand-sub, #root > .header .brand .mark, #root > .header .nav-cv { display: none; }
+  #root > .header .nav-actions { flex: 0 0 auto; display: flex; flex-wrap: nowrap; gap: 4px; min-width: 0; }
+  #root > .header .nav-actions .icon-btn { flex: 0 0 44px; width: 44px; min-width: 44px; height: 44px; min-height: 44px; padding: 0; }
+  #root > .header .menu-btn { display: inline-flex; }
+  #root > .header .theme-switch { flex: 0 0 auto; min-height: 44px; padding: 2px; gap: 0; }
+  #root > .header .theme-option { width: 28px; height: 36px; }
+  #root > .header .theme-option svg, #root > .header .motion-btn svg { width: 18px; height: 18px; }
+  #root > .header .auto-sky { flex: 0 0 auto; min-width: 44px; min-height: 44px; padding: 4px 6px; font-size: 11px; }
+  #root > .header .nav-links {
+    position: absolute; top: calc(100% + 6px); left: 0; right: 0;
+    display: none; visibility: hidden; opacity: 0; pointer-events: none;
+    padding: 6px 10px; gap: 2px; border: 1px solid var(--line); border-radius: 14px;
+    background: var(--surface); box-shadow: 0 12px 30px #0002;
+    max-height: calc(100vh - 86px); max-height: calc(100dvh - 86px - env(safe-area-inset-bottom, 0px));
+    overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
+    transform: none;
+  }
+  #root > .header .nav-links.open { display: grid; visibility: visible; opacity: 1; pointer-events: auto; transform: none; }
+  #root > .header .nav-links a { padding: 10px 12px; min-height: 44px; }
+  #root > .header .nav-pill { display: none; }
+  #root > .header .nav-links a.active { background: var(--surface2); }
+  #root > main .wrap {
+    padding-left: max(18px, env(safe-area-inset-left, 0px));
+    padding-right: max(18px, env(safe-area-inset-right, 0px));
+  }
+  #about.hero { min-height: 0; padding-block: 54px 48px; }
+  #about.hero > * { min-width: 0; }
+  #about .actions { gap: 8px; }
+  #about .actions .button { min-width: 0; text-align: center; white-space: normal; }
+  .footer-landscape .footer { padding-bottom: max(12px, env(safe-area-inset-bottom, 0px)); }
+}
+@media (max-width: 650px) and (orientation: portrait) {
+  #about.hero { grid-template-columns: minmax(0, 1fr); gap: 28px; padding-block: 58px 42px; }
+  #about.hero h1 { font-size: clamp(30px, 8.8vw, 48px); }
+  #about .name { margin-top: 16px; }
+  #about .lead { font-size: clamp(15px, 4vw, 17px); }
+  #about .actions { margin-top: 20px; }
+  #about .actions .button { flex: 1 1 135px; padding-inline: 10px; }
+  .sky-scene .sun, .sky-scene .moon { top: max(84px, 12%); right: 6%; }
+  .moon-wish-trigger { top: max(84px, 12%); right: 6%; }
+  .moon-wish-note { top: calc(max(84px, 12%) + clamp(75px,10vw,140px) + 10px); right: 6%; }
+}
+@media (max-width: 360px) {
+  #root > .header .navbar { gap: 4px; padding-inline: 6px; }
+  #root > .header .brand { font-size: 12px; }
+  #root > .header .nav-actions { gap: 2px; }
+  #root > .header .theme-option { width: 25px; }
+}
+@media (orientation: landscape) and (max-width: 1100px) and (max-height: 600px) {
+  html { scroll-padding-top: 72px; }
+  #root > .header { top: max(4px, env(safe-area-inset-top, 0px)); margin-top: 4px; }
+  #root > .header .navbar { min-height: 54px; padding-block: 4px; }
+  #root > .header .nav-links { max-height: calc(100vh - 72px); max-height: calc(100dvh - 72px - env(safe-area-inset-bottom, 0px)); }
+  #about.hero { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(16px, 4vw, 36px); padding-block: 24px 36px; align-items: center; }
+  #about.hero h1 { font-size: clamp(30px, 5vw, 48px); }
+  #about .status { margin-bottom: 10px; }
+  #about .name { font-size: clamp(18px, 2.7vw, 24px); margin-top: 12px; }
+  #about .lead { font-size: 15px; line-height: 1.65; }
+  #about .actions, #about .social { margin-top: 14px; }
+  #about .portrait-wrap { max-width: 310px; width: 100%; justify-self: center; }
+  #about .portrait img { max-height: 220px; object-fit: cover; }
+  #about .scroll-cue { bottom: 4px; }
+  .sky-scene .sun, .sky-scene .moon { top: 72px; right: 7%; width: clamp(54px, 10vw, 95px); }
+  .moon-wish-trigger { top: 72px; right: 7%; width: clamp(54px, 10vw, 95px); }
+  .moon-wish-note { top: calc(82px + clamp(54px,10vw,95px)); right: 7%; }
+  #root > main .section { padding-top: 48px; }
+  #root > main .grid3, #root > main .cert-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #root > .footer-landscape { min-height: 230px; }
+}
+@media (orientation: landscape) and (max-width: 600px) {
+  #about.hero { grid-template-columns: minmax(0, 1fr); }
+}
