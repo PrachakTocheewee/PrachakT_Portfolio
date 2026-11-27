@@ -19,3 +19,7 @@
 @media(max-width:650px){#root>.celestial-anniversary{top:max(84px,12%);right:6%}}
 @media(orientation:landscape) and (max-width:1100px) and (max-height:600px){#root>.celestial-anniversary{top:72px;right:7%;width:clamp(54px,10vw,95px)}#root>.creator-postcard{max-height:130px}}
 @media(prefers-reduced-motion:reduce){#root>.celestial-anniversary{animation:none;opacity:.75}}
+
+@media(min-width:1101px){#root>.celestial-anniversary.solar{top:9%;width:clamp(90px,12vw,175px)}}
+@media(max-width:1100px) and (min-width:651px) and (min-height:601px){#root>.celestial-anniversary.solar{top:9%;width:clamp(90px,12vw,175px)}}
+@media(max-width:650px) and (orientation:portrait){#root>.celestial-anniversary.solar{width:clamp(90px,12vw,175px)}}
