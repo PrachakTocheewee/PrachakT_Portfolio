@@ -13,3 +13,12 @@
 #root>.garden-trail .garden-trail-panel{max-width:1000px}.garden-trail .garden-mini-world{grid-template-columns:1fr}.garden-trail .garden-mini-creatures{max-width:220px;margin:auto}
 @media(max-width:650px){.elegant-koi{padding:9px;border-radius:16px}.koi-heading small,.elegant-koi figcaption{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.koi-tail,.pond-caustics,.pond-bubble,.koi-ripple{animation:none!important}.lotus-petal,.lotus-heart{transition:none!important}}
+
+.koi-actions{display:flex;flex-wrap:wrap;gap:5px}
+#root .elegant-koi.pond-zoom{position:fixed;inset:max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));width:auto;max-width:none;height:auto;z-index:60;display:flex;flex-direction:column;justify-content:center;margin:0;box-shadow:0 0 0 100vmax #081620b0;overflow:auto}.pond-zoom>svg{max-height:calc(100dvh - 145px);object-fit:contain;flex-shrink:1;min-height:100px}
+.pond-surface-light{animation:pondLight 9s ease-in-out infinite alternate}.pond-waterfall{animation:waterfallShimmer 1.6s ease-in-out infinite alternate}@keyframes waterfallShimmer{to{opacity:.42;translate:0 3px}}
+.pond-rain-ring{transform-box:fill-box;transform-origin:center;animation:pondRain 2.2s linear infinite}@keyframes pondRain{0%{scale:.2;opacity:.7}100%{scale:3;opacity:0}}
+.pond-floating-leaf{animation:pondLeaf 7s ease-in-out infinite alternate;transform-origin:center;transform-box:fill-box}@keyframes pondLeaf{to{translate:12px 6px;rotate:16deg}}
+.lotus-bloomed .outer{animation:lotusSway 5s 9s ease-in-out infinite alternate}@keyframes lotusSway{to{transform:scale(.98,1.05)}}
+.koi-still .pond-waterfall,.koi-still .pond-season-mote,.koi-still .pond-surface-light,.koi-still .lotus-bloomed .outer,.pond-saver .pond-waterfall,.pond-saver .pond-season-mote,.pond-saver .pond-surface-light,.pond-saver .lotus-bloomed .outer{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){.pond-waterfall,.pond-season-mote,.pond-surface-light,.lotus-bloomed .outer{animation:none!important}}
