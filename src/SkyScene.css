@@ -72,3 +72,10 @@ body{font-size:clamp(15px,1.05vw,17px);line-height:1.7}.hero h1{font-size:clamp(
 @media(max-width:900px){.nav-pill{display:none}.nav-links a.active{background:var(--surface2)}}
 @media(max-width:650px){#root>.footer-landscape{min-height:320px}.footer-landscape .footer{flex-wrap:nowrap;gap:12px}.footer-landscape .footer span{max-width:75%}}
 @media(prefers-reduced-motion:reduce){.natural-meteor{animation:meteorNatural 1.25s ease-out both!important}.nav-pill{transition:none!important}}
+
+/* Final preview adjustments: smaller airborne seeds and visible night garden. */
+.sky-scene .seed{max-width:41px}.day-burst span{width:24px;height:31px}
+[data-theme=dark] .footer-landscape{background:linear-gradient(180deg,transparent,#152d32 35%,#183e38)}
+[data-theme=dark] .garden-canvas{mask-image:linear-gradient(transparent,#000 10%);opacity:1}
+[data-theme=dark] .footer-landscape .footer{background:#173044a6;border-color:#b7d7d43d}
+@media(max-width:650px){.sky-scene .seed{max-width:32px}}
