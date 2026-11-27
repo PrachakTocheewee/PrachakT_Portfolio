@@ -23,3 +23,8 @@
 @media(min-width:1101px){#root>.celestial-anniversary.solar{top:9%;width:clamp(90px,12vw,175px)}}
 @media(max-width:1100px) and (min-width:651px) and (min-height:601px){#root>.celestial-anniversary.solar{top:9%;width:clamp(90px,12vw,175px)}}
 @media(max-width:650px) and (orientation:portrait){#root>.celestial-anniversary.solar{width:clamp(90px,12vw,175px)}}
+
+.halley-comet-scene{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}.halley-comet{position:absolute;left:0;top:0;width:clamp(175px,37vw,430px);height:auto;filter:drop-shadow(0 0 5px #b4e2ed66);animation:halleyJourney 16s linear both}
+@keyframes halleyJourney{0%{transform:translate(-110%,16vh) rotate(-13deg);opacity:0}12%{opacity:1}78%{opacity:1}100%{transform:translate(110vw,5vh) rotate(-13deg);opacity:0}}
+.halley-comet-scene.comet-still .halley-comet{animation:none;left:20%;top:15%;opacity:.8;transform:rotate(-13deg)}
+@media(prefers-reduced-motion:reduce){.halley-comet{animation:none;left:20%;top:15%;opacity:.8;transform:rotate(-13deg)}}
