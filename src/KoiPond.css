@@ -22,3 +22,7 @@
 .lotus-bloomed .outer{animation:lotusSway 5s 9s ease-in-out infinite alternate}@keyframes lotusSway{to{transform:scale(.98,1.05)}}
 .koi-still .pond-waterfall,.koi-still .pond-season-mote,.koi-still .pond-surface-light,.koi-still .lotus-bloomed .outer,.pond-saver .pond-waterfall,.pond-saver .pond-season-mote,.pond-saver .pond-surface-light,.pond-saver .lotus-bloomed .outer{animation-play-state:paused!important}
 @media(prefers-reduced-motion:reduce){.pond-waterfall,.pond-season-mote,.pond-surface-light,.lotus-bloomed .outer{animation:none!important}}
+
+#root>.garden-trail:has(.pond-zoom){z-index:70}
+html:has(.pond-zoom){overflow:hidden}
+.pond-saver .koi-ripple{animation:none;opacity:.3}
