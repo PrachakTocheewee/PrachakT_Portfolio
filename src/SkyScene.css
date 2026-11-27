@@ -8,4 +8,28 @@ body{background:var(--bg);transition:background .65s,color .45s;overflow-x:clip}
 .wrap{max-width:1320px;padding-inline:clamp(20px,5vw,64px)}.header{background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(16px);border-bottom-color:color-mix(in srgb,var(--line) 60%,transparent)}.hero-bg{background:transparent}.hero{position:relative;min-height:calc(86svh - 72px);padding-block:clamp(80px,11vw,150px);gap:clamp(35px,8vw,100px)}.hero h1{font-size:clamp(48px,7.1vw,100px);line-height:1.04}.hero h1 em{background:linear-gradient(105deg,var(--accent),var(--mint));background-clip:text;color:transparent}.lead{line-height:1.85;max-width:580px}.panel,.summary{background:color-mix(in srgb,var(--surface) 91%,transparent);backdrop-filter:blur(13px);border-radius:24px}.panel{padding:clamp(22px,3vw,34px);box-shadow:0 18px 45px #050b1812;transition:transform .25s,border-color .25s,box-shadow .25s}.panel:hover{border-color:var(--accent);box-shadow:0 18px 50px #17274c22}.summary{padding:26px}.section{padding-top:clamp(85px,11vw,148px)}.heading{margin-bottom:36px}.heading p{margin-top:12px}.grid3{gap:22px;margin-top:24px}.contact{margin-top:clamp(85px,11vw,148px)}.footer{padding-block:48px}.scroll-cue{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);font-size:12px;letter-spacing:.08em;color:var(--muted);display:flex;align-items:center;gap:9px}.scroll-cue span{animation:cueBob 2s ease-in-out infinite}.sky-caption{position:absolute;right:clamp(20px,5vw,64px);top:82px;z-index:1;font-size:11px;color:var(--muted);padding:5px 10px;border-radius:20px;background:color-mix(in srgb,var(--surface) 85%,transparent);pointer-events:none}@keyframes cueBob{50%{transform:translateY(4px)}}.sky-paused~main .scroll-cue span{animation-play-state:paused}.button{transition:transform .2s,box-shadow .2s,background .3s}.button:hover{box-shadow:0 6px 24px color-mix(in srgb,var(--accent) 28%,transparent)}.nav-actions{gap:8px}.portrait-wrap{max-width:460px}.portrait.panel{border-radius:26px}.portrait img{border-radius:18px}
 @media(max-width:900px){.hero{min-height:0;padding-block:95px 85px}.sky-caption{top:80px}.nav-actions{gap:6px}.nav-actions .icon-btn{width:40px}.section{padding-top:90px}}
 @media(max-width:650px){.hero{padding-block:90px 65px;gap:36px}.hero h1{font-size:clamp(45px,10vw,65px)}.section{padding-top:68px}.contact{margin-top:68px}.heading{margin-bottom:22px}.grid3{gap:14px}.sky-caption{font-size:10px;right:16px}.sky-layer .seed:nth-of-type(n+14),.sky-layer .star:nth-of-type(n+46),.meteor:nth-of-type(n+94){display:none}.moon,.sun{right:5%;top:12%}.nav-actions .icon-btn{width:36px;min-height:40px;font-size:17px}.nav-cv{padding:8px;min-height:40px}.brand{font-size:12px}.mark{width:30px;height:30px;font-size:17px}.navbar{gap:5px}.summary{padding:20px}.scroll-cue{bottom:10px}}
-@media(prefers-reduced-motion:reduce){.sky-scene *, .scroll-cue span{animation:none!important;transition:none!important}.meteor{display:none}.seed{opacity:.6}}
+
+
+/* Keep the backdrop above the page background and below all content. */
+#root{isolation:isolate;position:relative}
+.sky-scene{z-index:0}
+#root>main,#root>footer{position:relative;z-index:1}
+#root>.header{z-index:30}
+.sky-caption{z-index:2}
+.theme-switch{display:flex;align-items:center;gap:3px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:3px;min-height:44px;flex-shrink:0}
+.theme-option{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;color:var(--muted);transition:background .25s,color .25s,box-shadow .25s}
+.theme-option svg,.motion-btn svg{width:20px;height:20px;display:block}
+.theme-option.selected{background:#343754;color:#e0d8ff;box-shadow:0 2px 8px #0003}
+[data-theme=light] .theme-option.selected{background:#fff0c4;color:#8e590b;box-shadow:0 2px 8px #a7791922}
+.motion-btn{border-radius:50%}
+.sky-scene .seed{color:#fff;filter:drop-shadow(0 1px 2px #23496695)}
+.sky-scene .seed svg{overflow:visible}
+.sky-scene .cloud{animation-duration:22s}
+.sky-scene .cloud-b{animation-duration:30s}
+.sky-scene .cloud-c{animation-duration:36s}
+.sky-scene .star{animation-duration:2.4s}
+.sky-scene .meteor{width:clamp(100px,16vw,230px);height:2px;animation-name:visibleMeteor}
+@keyframes visibleMeteor{0%{opacity:0;transform:translate3d(120px,-120px,0) rotate(135deg)}5%{opacity:1}23%{opacity:1;transform:translate3d(-260px,260px,0) rotate(135deg)}29%,100%{opacity:0;transform:translate3d(-360px,360px,0) rotate(135deg)}}
+@keyframes seedDrift{0%{transform:translate3d(-15vw,10vh,0) rotate(-35deg);opacity:0}8%,82%{opacity:.95}100%{transform:translate3d(40vw,-30vh,0) rotate(100deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){.sky-scene:not(.sky-force-motion) *{animation-play-state:paused!important}.sky-scene:not(.sky-force-motion) .meteor{visibility:hidden}.sky-scene.sky-force-motion .seed{animation:seedDrift var(--duration) var(--delay) linear infinite!important}.sky-scene.sky-force-motion .cloud{animation:cloudFloat 22s ease-in-out infinite alternate!important}.sky-scene.sky-force-motion .star{animation:twinkleSky 2.4s ease-in-out infinite alternate!important}.sky-scene.sky-force-motion .meteor{animation:visibleMeteor 6s linear infinite!important}.sky-scene.sky-force-motion .pollen{animation:pollenFloat 18s ease-in-out infinite alternate!important}.sky-scene.sky-force-motion .sun{animation:sunPulse 13s ease-in-out infinite alternate!important}.sky-scene.sky-force-motion .nebula{animation:nebulaBreathe 18s ease-in-out infinite alternate!important}}
+@media(max-width:650px){.theme-switch{min-height:40px;padding:2px;gap:0}.theme-option{width:28px;height:32px}.theme-option svg{width:17px;height:17px}.nav-actions{gap:4px}.navbar{padding-inline:12px}.brand .mark{display:none}.motion-btn svg{width:17px;height:17px}}
