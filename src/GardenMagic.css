@@ -10,3 +10,13 @@
 [data-motion=paused] .hero h1 em,[data-motion=paused] .wish-flower,[data-motion=paused] .footer-landscape .footer:before,[data-motion=paused] .scroll-cue span{animation-play-state:paused!important}
 @media(max-width:650px){.moon-wish-trigger{right:5%;top:12%}.moon-wish-note{right:5%;top:calc(12% + 80px)}.wish-flower-wrap{left:8%;bottom:91px;width:60px}.wish-flower{width:58px;height:84px}.wish-message{bottom:86px}.butterfly-1{display:none}.aurora{filter:blur(25px);opacity:.1}}
 @media(prefers-reduced-motion:reduce){.hero h1 em{animation:none!important}.butterfly,.wing,.aurora{animation:none!important}}
+
+/* Visible occasional butterflies, with a first flight already underway. */
+.hero-bg{position:relative;isolation:isolate}.butterfly-hero{z-index:0}.hero-bg>.hero{z-index:1}
+.butterfly-layer .butterfly{width:36px;top:32%;left:0;animation:butterflyVisit 23s linear infinite;animation-delay:-3s;filter:drop-shadow(0 1px 1px #755d4538)}
+.butterfly-layer .butterfly-1{width:29px;top:51%;animation-duration:31s;animation-delay:-9s}
+.butterfly-hero .butterfly{top:18%;width:29px;animation-duration:31s;animation-delay:-2s}
+.butterfly-hero .butterfly-1{top:77%;width:25px;animation-duration:41s;animation-delay:-11s}
+@keyframes butterflyVisit{0%{transform:translate(-40px,15px) rotate(-9deg);opacity:0}5%{opacity:1}13%{transform:translate(22vw,-23px) rotate(-8deg)}23%{transform:translate(43vw,17px) rotate(8deg)}34%{transform:translate(70vw,-30px) rotate(-5deg);opacity:1}44%{transform:translate(106vw,10px);opacity:0}100%{transform:translate(106vw,10px);opacity:0}}
+@media(max-width:650px){.butterfly-layer .butterfly{width:28px}.butterfly-hero .butterfly{top:13%;width:24px}}
+[data-motion=paused] .butterfly,[data-motion=paused] .wing{animation-play-state:paused!important}
