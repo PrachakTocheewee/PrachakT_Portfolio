@@ -56,3 +56,12 @@
 @keyframes magicGlow{0%,100%{filter:drop-shadow(0 0 2px #d2e6ff)}50%{filter:drop-shadow(0 0 12px #d2e6ff);transform:scale(1.24)}}
 @media(max-width:650px){.skill-star-map{height:94px;margin-inline:6px}.passing-visitor span{font-size:17px}}
 @media(prefers-reduced-motion:reduce){.passing-visitor{display:none}.token-found span{animation:none!important}}
+
+/* Season-exclusive discoveries remain small, accessible and in normal flow. */
+.seasonal-token{color:var(--season-accent);border-color:color-mix(in srgb,var(--season-accent) 45%,transparent);background:color-mix(in srgb,var(--season-accent) 8%,transparent)}
+.seasonal-token span{filter:drop-shadow(0 0 5px var(--season-accent))}
+[data-motion=playing] .seasonal-token.token-found span{animation:seasonalDiscover .9s ease-out both}
+@keyframes seasonalDiscover{0%,100%{transform:scale(1)}35%{transform:translateY(-5px) scale(1.22);filter:drop-shadow(0 0 12px var(--season-accent))}65%{transform:translateY(1px) scale(1.07)}}
+[data-motion=playing] .seasonal-rain.token-found span{animation:rainSpirit .85s ease-out both}
+@keyframes rainSpirit{0%,100%{transform:scale(1)}45%{transform:translateY(-3px) scale(1.18);filter:drop-shadow(0 0 12px #8bcadf)}}
+@media(prefers-reduced-motion:reduce){.seasonal-token.token-found span{animation:none!important}}
