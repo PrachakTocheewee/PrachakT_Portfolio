@@ -1,0 +1,50 @@
+
+.weather-garden{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.cloud-shadow{position:absolute;inset:0;background:radial-gradient(ellipse at center,#5b87a015,transparent 62%);animation:cloudShade 36s ease-in-out infinite alternate}
+@keyframes cloudShade{from{transform:translateX(-50%)}to{transform:translateX(50%)}}
+.garden-mist{position:absolute;inset:0;background:linear-gradient(180deg,transparent,#e2f5ff55);opacity:.65}
+.garden-rain{position:absolute;top:-8%;width:1px;height:24px;background:linear-gradient(transparent,#6596ad66);animation:rainDrift linear infinite}
+@keyframes rainDrift{to{transform:translate(-8vw,112vh)}}
+.garden-rainbow{position:absolute;width:70vw;height:35vw;max-width:560px;max-height:280px;top:20%;left:12%;border-radius:50% 50% 0 0;background:radial-gradient(ellipse at 50% 100%,transparent 55%,#a6b4e04d 56%,#a4d9c34d 59%,#f6de9e55 62%,#eea2a955 65%,transparent 68%);animation:weatherFade 1.5s ease}
+@keyframes weatherFade{from{opacity:0}to{opacity:1}}
+.midnight-galaxy{position:absolute;inset:-25%;background:radial-gradient(ellipse,#d2c9ff35 0%,#90a5f322 25%,transparent 62%);transform:rotate(-38deg) scaleY(.28);filter:blur(7px)}
+#root>.garden-trail{position:relative;z-index:2;margin-top:36px;width:100%;padding-inline:max(18px,env(safe-area-inset-left,0px)) max(18px,env(safe-area-inset-right,0px))}
+.garden-trail-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.garden-trail-bar button,.garden-sounds button,.focus-link{background:var(--surface);color:var(--muted);border:1px solid var(--line);border-radius:12px;padding:8px 13px;min-height:44px;font-size:12px}
+.focus-link{background:transparent;border-color:transparent;text-decoration:underline;text-underline-offset:3px}
+.garden-trail-panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px;margin:12px auto 0;max-width:560px;display:grid;gap:15px}
+.garden-mini-world{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr);gap:10px;align-items:center}
+.garden-mini-world button{border:0;background:transparent;display:grid;justify-items:center;align-items:center;gap:4px;color:var(--muted);font-size:12px;min-height:44px;padding:3px}
+.koi-pond svg{width:100%;max-width:240px;overflow:hidden}
+.koi-fish{transition:transform .7s ease}
+.pond-ripple{transform-origin:120px 57px;animation:pondPulse 1.2s ease-out both}
+@keyframes pondPulse{from{opacity:.9;transform:scale(.3)}to{opacity:0;transform:scale(3)}}
+.garden-mini-creatures{display:grid;gap:8px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.garden-mini-creatures svg{width:40px;height:40px;max-width:100%}
+.mushroom-glow{filter:drop-shadow(0 0 7px #c5ffe5)}
+.garden-sounds{display:grid;gap:5px;border-top:1px solid var(--line);padding-top:10px;font-size:12px;color:var(--muted)}
+.garden-sounds>div{display:flex;flex-wrap:wrap;gap:5px}
+.garden-sounds button[aria-pressed=true],.garden-trail-bar button[aria-pressed=true]{border-color:var(--accent);color:var(--accent)}
+.skill-connections{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;color:var(--accent);font-size:13px;margin:0 0 16px}
+.skill-connections span{padding:6px 9px;border:1px solid var(--line);border-radius:9px;background:var(--surface)}
+.skill-connections i{width:clamp(8px,3vw,40px);height:1px;background:var(--line);position:relative;overflow:hidden}
+[data-motion=playing] .skill-connections i:after{content:'';position:absolute;inset:0;background:var(--accent);animation:skillFlow 2.5s ease-in-out infinite}
+@keyframes skillFlow{0%,25%{transform:translateX(-100%)}75%,100%{transform:translateX(100%)}}
+.timeline article:before{transition:background .4s,box-shadow .4s}
+[data-motion=playing] .timeline article.story-seen:before{background:var(--mint);box-shadow:0 0 12px var(--mint)}
+.section>.heading{position:relative}
+.section>.heading:after{content:'';display:block;width:60px;height:2px;margin-top:12px;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--mint))}
+[data-motion=playing] .section-revealed>.heading:after{animation:dividerGrow .8s ease-out both}
+@keyframes dividerGrow{from{width:0}to{width:60px}}
+.project-preview{font-size:12px;color:var(--muted);min-width:0}
+.project-preview summary{cursor:pointer;color:var(--accent);padding-block:5px}
+.project-preview svg{display:block;width:100%;height:auto;border-radius:8px;margin:4px 0}
+.project-preview small{font-size:10px}
+@media(max-width:1100px){#root>.header{transition:transform .22s ease}#root>.header.nav-hidden:not(:focus-within){transform:translateY(calc(-100% - 24px - env(safe-area-inset-top,0px)))}#root>.header .nav-links.open{max-height:calc(100dvh - 85px - env(safe-area-inset-bottom,0px));overflow-y:auto}}
+[data-focus=on] .sky-scene,[data-focus=on] .season-layer,[data-focus=on] .weather-garden,[data-focus=on] .garden-canvas,[data-focus=on] .sky-caption,[data-focus=on] .moon-wish-trigger,[data-focus=on] .moon-wish-note,[data-focus=on] .wish-flower-wrap,[data-focus=on] .secret-lady,[data-focus=on] .secret-cat,[data-focus=on] .secret-constellation,[data-focus=on] .garden-collection{display:none!important}
+[data-focus=on] #root>.footer-landscape{min-height:100px;background:transparent}
+[data-focus=on] .garden-trail-panel .garden-mini-world{display:none}
+[data-focus=on] #root>.header.nav-hidden{transform:none}
+@media(max-width:440px){.garden-mini-world{grid-template-columns:1fr}.garden-mini-creatures{max-width:200px;justify-self:center}.garden-trail-panel{padding:12px}.skill-connections{gap:4px}.skill-connections span{font-size:11px;padding:5px 6px}}
+@media(prefers-reduced-motion:reduce){.cloud-shadow,.garden-rain,.garden-rainbow,.pond-ripple,.skill-connections i:after,.section>.heading:after{animation:none!important}#root>.header,.koi-fish{transition:none!important}}
+[data-motion=paused] .pond-ripple,[data-motion=paused] .skill-connections i:after,[data-motion=paused] .section>.heading:after{animation:none!important}
