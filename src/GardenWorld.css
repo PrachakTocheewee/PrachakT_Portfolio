@@ -37,3 +37,22 @@
 @media(max-width:650px){.hero-garden-trail .garden-guide{gap:4px 9px}.garden-encounter{gap:2px 8px;margin-bottom:8px}.encounter-message{text-align:left;font-size:11px}.world-journal-panel{max-height:min(380px,calc(100dvh - 132px - env(safe-area-inset-bottom,0px)))}}
 @media(orientation:landscape) and (max-height:600px){.world-journal-panel{max-height:calc(100dvh - 82px - env(safe-area-inset-bottom,0px))}.garden-water-reflection{bottom:82px}.hero-garden-trail{grid-column:1/-1}}
 @media(prefers-reduced-motion:reduce){.garden-water-reflection i,.token-found span{animation:none!important}}
+
+.skill-constellation{max-width:420px;margin:0 auto 12px;text-align:center;color:var(--accent);padding:4px 12px}
+.skill-star-map{position:relative;height:94px;max-width:340px;margin:auto}
+.skill-star-map svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.skill-star-map button{position:absolute;transform:translate(-50%,-50%);width:44px;height:44px;border:0;border-radius:50%;background:transparent;color:var(--muted);font-size:18px;display:grid;place-items:center;padding:0}
+.skill-star-map .star-connected{color:#e4d8ff;text-shadow:0 0 12px #afcaff}
+.skill-constellation small{font-size:11px}
+.passing-visitor{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.passing-visitor span{position:absolute;display:block;font-size:22px;filter:drop-shadow(0 0 7px #ffffff44)}
+.passing-visitor .bird{top:20%;left:0;animation:birdAcross 6.5s linear both}
+.passing-visitor .lantern{bottom:10%;left:76%;animation:lanternFloat 6.5s ease-in-out both}
+@keyframes birdAcross{from{transform:translate(-40px,15px);opacity:0}10%,85%{opacity:.8}to{transform:translate(105vw,-45px);opacity:0}}
+@keyframes lanternFloat{from{transform:translate(0,0);opacity:0}15%,80%{opacity:.7}to{transform:translate(-35px,-80vh);opacity:0}}
+[data-motion=playing] .token-lantern.token-found span{animation:lanternDiscovery .8s ease-out}
+@keyframes lanternDiscovery{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px);filter:drop-shadow(0 0 12px #fff5a6)}}
+[data-motion=playing] .token-firefly.token-found span,[data-motion=playing] .token-crystal.token-found span{animation:magicGlow .8s ease-out}
+@keyframes magicGlow{0%,100%{filter:drop-shadow(0 0 2px #d2e6ff)}50%{filter:drop-shadow(0 0 12px #d2e6ff);transform:scale(1.24)}}
+@media(max-width:650px){.skill-star-map{height:94px;margin-inline:6px}.passing-visitor span{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.passing-visitor{display:none}.token-found span{animation:none!important}}
