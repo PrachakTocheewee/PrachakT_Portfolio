@@ -79,3 +79,6 @@ body{font-size:clamp(15px,1.05vw,17px);line-height:1.7}.hero h1{font-size:clamp(
 [data-theme=dark] .garden-canvas{mask-image:linear-gradient(transparent,#000 10%);opacity:1}
 [data-theme=dark] .footer-landscape .footer{background:#173044a6;border-color:#b7d7d43d}
 @media(max-width:650px){.sky-scene .seed{max-width:32px}}
+
+/* A handful of larger five-point stars, retaining small distant pinpoints. */
+.sky-scene .twinkling{border-radius:0;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 94%,50% 72%,21% 94%,32% 57%,2% 35%,39% 35%);min-width:5px;min-height:5px;background:#f5f2ff}
