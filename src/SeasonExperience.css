@@ -1,0 +1,26 @@
+
+#root>.season-experience{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0;isolation:isolate}
+.season-wash{position:absolute;inset:0;opacity:.24;background:var(--season-wash,transparent)}
+:root[data-season=spring]{--season-wash:linear-gradient(155deg,#f6b4d8,transparent 75%);--season-accent:#e58eb3}
+:root[data-season=summer]{--season-wash:linear-gradient(155deg,#ffdf8e,transparent 75%);--season-accent:#efc45d}
+:root[data-season=rain]{--season-wash:linear-gradient(155deg,#688ea8,transparent 85%);--season-accent:#9fc8e4}
+:root[data-season=autumn]{--season-wash:linear-gradient(155deg,#e9a366,transparent 75%);--season-accent:#db955c}
+:root[data-season=winter]{--season-wash:linear-gradient(155deg,#b3d5fa,transparent 75%);--season-accent:#b9dcf6}
+.season-particle{position:absolute;left:var(--x);top:var(--y);width:var(--size);height:var(--size);opacity:.85;animation:seasonFloat var(--duration) var(--delay) linear infinite;filter:drop-shadow(0 1px 2px #263d5344)}
+.spring .season-particle{border-radius:75% 15% 75% 25%;background:linear-gradient(145deg,#fff0f6,#e697b7)}
+.summer .season-particle{width:6px;height:6px;border-radius:50%;background:#ffe8a0;box-shadow:0 0 8px #f9d778}
+.autumn .season-particle{background:linear-gradient(140deg,#e9b06d,#bc6c3d);border-radius:90% 0 90% 0}
+.autumn .season-particle:after{content:'';position:absolute;width:1px;height:85%;left:50%;background:#9f5f3544;transform:rotate(40deg)}
+.winter .season-particle{background:#d3edff;clip-path:polygon(50% 0,60% 38%,100% 50%,60% 62%,50% 100%,40% 62%,0 50%,40% 38%);filter:drop-shadow(0 0 4px #a9d8ff)}
+.rain .season-particle{width:2px;height:27px;background:linear-gradient(transparent,#80bed5);animation-name:seasonRain}
+@keyframes seasonFloat{0%{translate:0 -12vh;rotate:0deg;opacity:0}12%,82%{opacity:.85}100%{translate:var(--drift) 40vh;rotate:200deg;opacity:0}}
+@keyframes seasonRain{from{transform:translate(5vw,-18vh);opacity:0}20%{opacity:.75}to{transform:translate(-8vw,100vh);opacity:0}}
+.season-still .season-particle{animation:none;opacity:.45}
+.season-controls{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin:14px 0 0;font-size:12px;color:var(--muted);max-width:100%;position:relative}
+.season-controls label{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.season-controls select,.season-controls button{background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:10px;min-height:44px;padding:6px 10px;font:inherit;max-width:100%}
+.season-controls button[aria-pressed=true]{border-color:var(--season-accent);color:var(--accent)}
+.season-controls .season-volume input{width:84px;accent-color:var(--accent)}
+.season-description{flex-basis:100%;font-size:11px;line-height:1.4}
+@media(prefers-reduced-motion:reduce){.season-particle{animation:none!important;opacity:.5}}
+@media(max-width:650px){.season-controls{gap:4px 8px;margin-top:10px}.season-controls select{font-size:16px}.season-controls .season-volume{flex-basis:100%}}
